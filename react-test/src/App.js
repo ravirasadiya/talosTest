@@ -1,15 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import "./App.css";
+import PostCard from "./containers/PostCard";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Talos react test</h1>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <PostCard />
+      </div>
+    </Router>
   );
 }
 
