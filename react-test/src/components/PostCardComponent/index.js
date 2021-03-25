@@ -8,15 +8,10 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
 
-import "./ProductCard.scss";
+import "./PostCard.scss";
+import { API_URL } from "utils/constants";
 
-const PostCardComponent = ({
-  title,
-  description,
-  photoUrl,
-  tags,
-  onClickView,
-}) => {
+const PostCard = ({ title, description, photoUrl, tags, onClickView }) => {
   return (
     <Card className="card-container">
       <CardActionArea onClick={onClickView}>
@@ -25,7 +20,7 @@ const PostCardComponent = ({
             className="card-image"
             image={
               photoUrl
-                ? "http://localhost:3000/" + photoUrl
+                ? API_URL + photoUrl
                 : process.env.PUBLIC_URL + "/placeHolder.png"
             }
             title="Contemplative Reptile"
@@ -52,7 +47,7 @@ const PostCardComponent = ({
   );
 };
 
-PostCardComponent.propTypes = {
+PostCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   photoUrl: PropTypes.string,
@@ -60,4 +55,4 @@ PostCardComponent.propTypes = {
   onClickView: PropTypes.func,
 };
 
-export default PostCardComponent;
+export default PostCard;
