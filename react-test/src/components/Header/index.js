@@ -4,25 +4,50 @@ import Typography from "@material-ui/core/Typography";
 import "./styles.scss";
 import { useHistory, useLocation } from "react-router-dom";
 import { ROUTES } from "utils/constants";
+import {
+  AppBar,
+  Button,
+  IconButton,
+  makeStyles,
+  Toolbar,
+} from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+    textAlign: "left",
+  },
+}));
 
 function Header() {
   const history = useHistory();
   const location = useLocation();
+  const classes = useStyles();
 
   return (
-    <div className="header-container">
-      <div
-        id="logo-div"
-        onClick={() => {
-          history.push(ROUTES.postList);
-        }}
-      >
-        {/* logo */}
-        <Typography gutterBottom variant="h4" component="h4">
-          Talos Technical Test
+    <AppBar position="static">
+      <Toolbar>
+        <IconButton
+          edge="start"
+          className={classes.menuButton}
+          color="inherit"
+          aria-label="menu"
+          onClick={() => {
+            history.push(ROUTES.postList);
+          }}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6" className={classes.title}>
+          Tacos Digital Test
         </Typography>
-      </div>
-      <div id="right-container">
         <Typography
           gutterBottom
           variant="h5"
@@ -33,18 +58,18 @@ function Header() {
         >
           Posts
         </Typography>
-        {!(location.pathname === ROUTES.newPost) && (
+        {!(location.pathname === ROUTES.addPost) && (
           <div
             id="add-container"
             onClick={() => {
-              history.push(ROUTES.newPost);
+              history.push(ROUTES.addPost);
             }}
           >
-            <h4 id="add-text">Add New Post</h4>
+            <Button color="inherit">Add Post</Button>
           </div>
         )}
-      </div>
-    </div>
+      </Toolbar>
+    </AppBar>
   );
 }
 

@@ -7,6 +7,7 @@ import uniqueId from "utils/uniqueId";
 import { useHistory } from "react-router-dom";
 import { ROUTES } from "utils/constants";
 import PostCardComponent from "components/PostCardComponent";
+import "./PostList.scss";
 
 function PostList() {
   const dispatch = useDispatch();
@@ -18,8 +19,8 @@ function PostList() {
   const { posts } = useSelector((state) => state.posts);
 
   return (
-    <Container maxWidth="xl" className="post-list-container">
-      <Grid container spacing={5} alignItems="stretch">
+    <Container maxWidth="xl">
+      <Grid container spacing={5} alignItems="stretch" className="postList">
         {posts.map((post) => (
           <Grid item xs={12} sm={6} md={4} xl={3} key={uniqueId("mediaCard")}>
             <PostCardComponent

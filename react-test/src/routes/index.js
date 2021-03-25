@@ -5,6 +5,7 @@ import { AnimatedSwitch } from "react-router-transition";
 import { ROUTES } from "utils/constants";
 import PostList from "containers/PostList";
 import PostDetails from "containers/PostDetails";
+import AddPost from "containers/AddPost";
 
 const Routes = () => {
   const mapStyles = (styles) => ({
@@ -27,7 +28,7 @@ const Routes = () => {
     },
   };
 
-  const { postList, postDetails } = ROUTES;
+  const { postList, postDetails, addPost } = ROUTES;
   return (
     <AnimatedSwitch
       atEnter={transition.atEnter}
@@ -38,6 +39,7 @@ const Routes = () => {
     >
       <Route exact path={postList} component={PostList} />
       <Route exact path={postDetails()} component={PostDetails} />
+      <Route exact path={addPost} component={AddPost} />
     </AnimatedSwitch>
   );
 };

@@ -1,6 +1,7 @@
 export const ROUTES = {
   postList: "/",
   postDetails: (id) => (id ? `/posts/${id}` : "/posts/:id"),
+  addPost: "/add-post",
 };
 
 export const ENDPOINTS = {
