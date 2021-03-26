@@ -27,7 +27,17 @@ function PostDetails() {
 
   return (
     <Container maxWidth="xl" id="post-details-container">
-      <Grid container spacing={5} alignItems="stretch">
+      <Grid item xs={12} sm={12} className="mainImage">
+        <img
+          src={
+            photoUrl
+              ? API_URL + photoUrl
+              : process.env.PUBLIC_URL + "/placeHolder.png"
+          }
+          alt="Post"
+        />
+      </Grid>
+      <Grid container>
         <Grid item xs={12} className="center">
           <Typography gutterBottom variant="h2" component="h2">
             {title}
@@ -48,21 +58,14 @@ function PostDetails() {
               label={tag}
               color="primary"
               variant="outlined"
+              size="small"
+              className="labelChip"
               key={uniqueId("tagChip")}
             />
           ))}
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <img
-            src={
-              photoUrl
-                ? API_URL + photoUrl
-                : process.env.PUBLIC_URL + "/placeHolder.png"
-            }
-            alt="Post"
-          />
-        </Grid>
       </Grid>
+      <br />
       <Button
         size="large"
         onClick={() => {

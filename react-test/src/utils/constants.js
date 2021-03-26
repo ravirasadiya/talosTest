@@ -7,6 +7,7 @@ export const ROUTES = {
 export const ENDPOINTS = {
   posts: "posts",
   postDetails: (id) => `posts/${id}`,
+  uploadImage: (id) => `posts/${id}/picture`,
 };
 
 export const API_URL = "http://localhost:3000/";

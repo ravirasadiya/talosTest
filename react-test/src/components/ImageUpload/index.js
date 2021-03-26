@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Button from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
+import React from "react";
+import PropTypes from "prop-types";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 
-import './ImageUpload.scss'
+import "./ImageUpload.scss";
 
-function ImageUpload ({ handleImageChange, image }) {
+function ImageUpload({ handleImageChange, image }) {
   return (
     <>
       <div id="image-upload-container">
@@ -13,14 +13,17 @@ function ImageUpload ({ handleImageChange, image }) {
           Select Image:
         </Typography>
         <label htmlFor="raised-button-file">
-          <Button variant="contained" component="span" >
-          Upload
+          <Button variant="outlined" component="span">
+            Upload
           </Button>
         </label>
-        <img src={image || process.env.PUBLIC_URL + '/placeHolder.png'} alt="Uploaded"/>
+        <img
+          src={image || process.env.PUBLIC_URL + "/placeHolder.png"}
+          alt="Uploaded"
+        />
         <input
           accept="image/*"
-          style={{ display: 'none' }}
+          style={{ display: "none" }}
           id="raised-button-file"
           multiple
           type="file"
@@ -28,12 +31,12 @@ function ImageUpload ({ handleImageChange, image }) {
         />
       </div>
     </>
-  )
+  );
 }
 
 ImageUpload.propTypes = {
   handleImageChange: PropTypes.func,
-  image: PropTypes.any
-}
+  image: PropTypes.any,
+};
 
-export default ImageUpload
+export default ImageUpload;

@@ -10,6 +10,8 @@ import PropTypes from "prop-types";
 
 import "./PostCard.scss";
 import { API_URL } from "utils/constants";
+import { Chip } from "@material-ui/core";
+import uniqueId from "utils/uniqueId";
 
 const PostCard = ({ title, description, photoUrl, tags, onClickView }) => {
   return (
@@ -37,7 +39,15 @@ const PostCard = ({ title, description, photoUrl, tags, onClickView }) => {
       </CardActionArea>
       <CardActions className="card-bottom">
         <Typography variant="body1" color="initial" component="p">
-          {tags.join(", ")}
+          {tags.map((tag) => (
+            <Chip
+              label={tag}
+              color="primary"
+              variant="outlined"
+              key={uniqueId("tagChip")}
+            />
+          ))}
+          {/* {tags.join(", ")} */}
         </Typography>
         <Button size="small" color="primary" onClick={onClickView}>
           View

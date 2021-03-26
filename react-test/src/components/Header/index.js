@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginLeft: 100,
   },
   title: {
     flexGrow: 1,
@@ -32,44 +32,56 @@ function Header() {
   const classes = useStyles();
 
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <IconButton
-          edge="start"
-          className={classes.menuButton}
-          color="inherit"
-          aria-label="menu"
-          onClick={() => {
-            history.push(ROUTES.postList);
-          }}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6" className={classes.title}>
-          Tacos Digital Test
-        </Typography>
-        <Typography
-          gutterBottom
-          variant="h5"
-          component="h5"
-          onClick={() => {
-            history.push(ROUTES.postList);
-          }}
-        >
-          Posts
-        </Typography>
-        {!(location.pathname === ROUTES.addPost) && (
-          <div
-            id="add-container"
+    <div className="header-container">
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
             onClick={() => {
-              history.push(ROUTES.addPost);
+              history.push(ROUTES.postList);
             }}
           >
-            <Button color="inherit">Add Post</Button>
-          </div>
-        )}
-      </Toolbar>
-    </AppBar>
+            <img
+              src={process.env.PUBLIC_URL + "/logo.svg"}
+              id="add-icon"
+              alt="Add Post"
+            />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            Tacos Digital Test
+          </Typography>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="h5"
+            onClick={() => {
+              history.push(ROUTES.postList);
+            }}
+          >
+            Posts
+          </Typography>
+          {!(location.pathname === ROUTES.addPost) && (
+            <div
+              id="add-container"
+              onClick={() => {
+                history.push(ROUTES.addPost);
+              }}
+            >
+              <img
+                src={process.env.PUBLIC_URL + "/plusSign.svg"}
+                id="add-icon"
+                alt="Add Post"
+              />
+              <Button id="add-text" variant="contained">
+                Add Post
+              </Button>
+            </div>
+          )}
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 }
 

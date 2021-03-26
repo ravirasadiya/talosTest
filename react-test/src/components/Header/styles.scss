@@ -1,10 +1,8 @@
 .header-container {
   align-content: space-between;
-  padding: 0px 20px;
+
   height: auto;
-  min-height: 100px;
-  margin-bottom: 30px;
-  background-color: black;
+
   color: rgb(223, 223, 223);
   display: flex;
   justify-content: space-between;
@@ -25,7 +23,7 @@
   #add-container {
     position: relative;
     display: inline-block;
-    width: 80px;
+    width: 200px;
     height: 100%;
     text-align: center;
     cursor: pointer;
@@ -45,17 +43,8 @@
     transition: opacity 0.15s ease-out;
     position: absolute;
   }
-  .MuiTypography-h4 {
-    display: inline-block;
-    margin-left: 20px;
-  }
-  #right-container {
-    display: flex;
-    align-items: center;
-    h5 {
-      padding: 0 10px;
-      margin: 0;
-      cursor: pointer;
-    }
-  }
+}
+
+.menuButton {
+  margin-left: 100px;
 }
